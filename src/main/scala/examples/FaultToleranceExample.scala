@@ -97,7 +97,7 @@ case class SuperviseMe(worker: Worker){}
 class MySupervisor extends Actor{
 	
 	//this supervisor will trap all exceptions and restart the actor
-	trapExit = List(classOf[Exception])
+	trapExit = List(classOf[java.net.ConnectException])
 	
 	//the OneForOneStrategy means that only the actor that threw the exception will be restarted
 	//if the AllForOneStrategy had been selected then this supervisor would have restarted all of its actors
